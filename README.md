@@ -31,16 +31,17 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## notes from asignment
 
--todos still need to clean up adding cara hours/ events
--still needed to add documents
--had a few other rough spots
--also would want to build out a team role up for the different metrics they might care about and also add a way to track some of -that over time (add a cragph of cara over 20 by week, or % of team below 2.3/4 gpa( almost failing))
--also forms need better validators. 
--style would need tightening up. 
--imporove some type safty
--add a few key automatted tests.
--add user roles for who can do what 
--add a more realistic auth provider then using discord.
+- todos still need to clean up adding cara hours/ events
+- still needed to add documents
+- had a few other rough spots
+- also would want to build out a team role up for the different metrics they might care about and also add a way to track some of 
+that over time (add a cragph of cara over 20 by week, or % of team below 2.3/4 gpa( almost failing))
+- also forms need better validators. 
+- style would need tightening up. 
+- imporove some type safty
+- add a few key automatted tests.
+- add user roles for who can do what 
+- add a more realistic auth provider then using discord.
 
 how I woudl deploy this is to set up a mysql or postgresql database and push up the schema either using planetscale to make the db brainles
 
