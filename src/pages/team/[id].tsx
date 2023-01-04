@@ -25,7 +25,7 @@ const TeamDetails: NextPage = () => {
         if (id && typeof id === "string"){
             ids = id
         }
-        const x = addPlayer.mutate(
+        addPlayer.mutate(
             {first_name: e.first_name,
              last_name: e.last_name,
              email: e.email,
@@ -39,10 +39,14 @@ const TeamDetails: NextPage = () => {
              positions: [e.positions],
              teamIds: [ids], 
              schoolId: String(teamData?.schoolId || ""),
-            }
+            },
+            { onSuccess: (data) => {
+                setModalOpen(false)
+                router.push(`/student/${data.id}`)
+            }}
 
         )
-        // router.push(`/team/${teamCreater.data?.id}}`)
+
     });
 
 
@@ -128,7 +132,7 @@ const TeamDetails: NextPage = () => {
                             </div>
                             <div >
                                 <label htmlFor="positions" className="block text-sm font-medium text-gray-700 dark:text-gray-200">Position</label>
-                                <input {...register("positions", { required: true })} id="positions" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:ring-blue-400 dark:focus:border-blue-400"/>
+                                <input {...register("positions" )} id="positions" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:ring-blue-400 dark:focus:border-blue-400"/>
                             </div>
                             </div>
                             <div  className=" flex flex-row gap-2">

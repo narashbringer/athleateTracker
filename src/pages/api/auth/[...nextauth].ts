@@ -1,6 +1,7 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import CognitoProvider from "next-auth/providers/cognito";
+import GoogleProvider from "next-auth/providers/google";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
@@ -27,13 +28,19 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
     }),
+    
     CognitoProvider({
       clientId: process.env.COGNITO_CLIENT_ID,
       clientSecret: process.env.COGNITO_CLIENT_SECRET,
       issuer: process.env.COGNITO_ISSUER,
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    })
     
   ],
 };
 
 export default NextAuth(authOptions);
+

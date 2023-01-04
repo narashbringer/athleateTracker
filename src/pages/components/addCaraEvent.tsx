@@ -6,7 +6,7 @@ import { trpc } from "../../utils/trpc";
 
 
 
-const AddCaraEvent = (studentId) => {
+const AddCaraEvent = (caraId, studentId) => {
     const createCara = trpc.caraHours.create.useMutation();
     const { register, handleSubmit, reset } = useForm();
     const [emergencyModalOpen, setEmergencyModalOpen] = useState(false)
@@ -16,6 +16,7 @@ const AddCaraEvent = (studentId) => {
     const onCreateCara = handleSubmit((e) => {
         console.log(e)
         createCara.mutate({ name: e.Name,
+            caraId: caraId.caraId,
             Totalhours: e.Hours,
             Week: e.Week,
             studentId: studentId.studentId });
@@ -31,7 +32,7 @@ const AddCaraEvent = (studentId) => {
         type="button"
         onClick={toggleEmergencyModal}
         data-modal-toggle="caraEvent-modal">
-        Add CARA Week
+        Add CARA Event
         </button>
 <div 
 id="caraEvent-modal" 

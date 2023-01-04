@@ -25,9 +25,14 @@ const SchoolDetails: NextPage = () => {
         }
         const x = teamCreater.mutate(
             {name: e.teamName, 
-                schoolId: ids, userId: sessionData?.user?.id || ""}
+                schoolId: ids, userId: sessionData?.user?.id || ""},
+            { onSuccess: (data) => {
+                console.log("success", data)
+                router.push(`/team/${data?.id.trim()}`)
+
+            }}
         )
-        router.push(`/team/${teamCreater.data?.id}}`)
+       
     });
     const {data: usersTeams } = trpc.team.getUsersTeams.useQuery( 
         undefined, // no input
