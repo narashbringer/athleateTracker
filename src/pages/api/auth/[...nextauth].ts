@@ -24,11 +24,10 @@ export const authOptions: NextAuthOptions = {
     // note for a prod deploy of this I would azure ad and google so we can have them  conect into the sso from the school.
     // I would use cognito for the students and teachers for an actual pool this also could be swapped with auth0
    // I used discord for the test because it was easy to setup and test
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
-    }),
-    
+    // DiscordProvider({
+    //   clientId: env.DISCORD_CLIENT_ID,
+    //   clientSecret: env.DISCORD_CLIENT_SECRET,
+    // }),
     CognitoProvider({
       clientId: process.env.COGNITO_CLIENT_ID,
       clientSecret: process.env.COGNITO_CLIENT_SECRET,
